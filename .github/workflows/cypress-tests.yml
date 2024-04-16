@@ -14,10 +14,10 @@ jobs:
         uses: actions/checkout@v4.1.2
 
       - name: Install dependencies
-        run: node runner-electron.js
+        run: yarn install
 
       - name: Run E2E tests
-        run: ${{ github.event.inputs.cli }}
+        run: node runner-electron.js
     env:
       TARGET_TOKEN_ELECTRON: ${{ secrets.TARGET_TOKEN_ELECTRON }}
 
@@ -32,10 +32,10 @@ jobs:
         uses: actions/checkout@v4.1.2
 
       - name: Install dependencies
-        run: node runner-chrome.js
+        run: yarn install
 
       - name: Run E2E tests
-        run: ${{ github.event.inputs.cli }}
+        run: node runner-chrome.js
     env:
       TARGET_TOKEN_CHROME: ${{ secrets.TARGET_TOKEN_CHROME }}
 
@@ -50,9 +50,9 @@ jobs:
         uses: actions/checkout@v4.1.2
 
       - name: Install dependencies
-        run: node runner-firefox.js
+        run: yarn install
 
       - name: Run E2E tests
-        run: ${{ github.event.inputs.cli }}
+        run: node runner-firefox.js
     env:
       TARGET_TOKEN_FIREFOX: ${{ secrets.TARGET_TOKEN_FIREFOX }}
